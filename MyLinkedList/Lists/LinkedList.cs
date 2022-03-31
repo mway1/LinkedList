@@ -97,5 +97,76 @@ namespace Lists
             }
         }
 
+        public void AddToEnd(int value)
+        {
+            if (_root == null)
+            {
+                _root = new Node(value);
+                _tail = _root;
+            }
+
+            else
+            {
+                _tail.Next = new Node(value);
+                _tail = _tail.Next;
+            }
+        }
+
+
+        public override string ToString()
+        {
+            string s = "";
+            Node crnt = _root;
+
+            while (crnt != null)
+            {
+                s += $"{crnt.Value} ";
+                crnt = crnt.Next;
+            }
+
+            return s;
+        }
+        public override bool Equals(object? obj)
+        {
+            if (obj == null || !(obj is LinkedList))
+            {
+                return false;
+            }
+
+            LinkedList list = (LinkedList)obj;
+
+            if (list.Length != this.Length)
+            {
+                return false;
+            }
+
+            Node thisCrnt = this._root;
+            Node listCrnt = list._root;
+
+            while (thisCrnt != null)
+            {
+                if (thisCrnt.Value != listCrnt.Value)
+                {
+                    return false;
+                }
+
+                thisCrnt = thisCrnt.Next;
+                listCrnt = listCrnt.Next;
+            }
+
+            return true;
+        }
+
+        private Node GetNodeByIndex(int index)
+        {
+            Node crnt = _root;
+            for (int i = 1; i <= index; i++)
+            {
+                crnt = crnt.Next;
+            }
+
+            return crnt;
+        }
+
     }
 }
