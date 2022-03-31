@@ -25,6 +25,15 @@ namespace Lists.Tests
 
             Assert.AreEqual(expectedList, actualList);
         }
+        
+        [TestCaseSource(typeof(AddByIndexTestSource))]
+        public void AddByIndexTest(int index,int value, LinkedList list, LinkedList expectedList)
+        {
+            LinkedList actualList = list;
+            actualList.AddByIndex(index,value);
+
+            Assert.AreEqual(expectedList, actualList);
+        }
 
 
     }

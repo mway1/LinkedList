@@ -127,6 +127,34 @@ namespace Lists
             }
         }
 
+        public void AddByIndex(int index, int value)
+        {
+            if (index < 0 || index >= Length)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            if (_root is null)
+            {
+                _root = new Node(value);
+                _tail = _root;
+            }
+            else
+            {
+                if (index == 0)
+                {
+                    AddFirst(value);
+                }
+                else
+                {
+                    Node previousNode = GetNodeByIndex(index - 1);
+                    Node nextNode = GetNodeByIndex(index);
+                    Node newNode = new Node(value);
+                    previousNode.Next = newNode;
+                    newNode.Next = nextNode;
+                }
+            }
+        }
+
 
         public override string ToString()
         {
