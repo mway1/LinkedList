@@ -52,6 +52,15 @@ namespace Lists.Tests
 
             Assert.AreEqual(expectedList, actualList);
         }
+        
+        [TestCaseSource(typeof(DeleteByIndexTestSource))]
+        public void DeleteByIndexTest(int index,LinkedList list, LinkedList expectedList)
+        {
+            LinkedList actualList = list;
+            actualList.DeleteByIndex(index);
+
+            Assert.AreEqual(expectedList, actualList);
+        }
 
 
     }

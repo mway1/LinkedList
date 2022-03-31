@@ -183,6 +183,32 @@ namespace Lists
             _root = _root.Next;
         }
 
+        public void DeleteByIndex(int index)
+        {
+            if (_tail is null)
+            {
+                throw new Exception("Nothing to delete, add elemenets");
+            }
+            if (index < 0 || index >= Length)
+            {
+                throw new IndexOutOfRangeException();
+            }
+            if (index == 0)
+            {
+                _root = _root.Next;
+            }
+            else
+            {
+                Node prevNode = GetNodeByIndex(index - 1);
+                Node nextNode = prevNode.Next.Next;
+                prevNode.Next = nextNode;
+                if (index == Length)
+                {
+                    _tail = prevNode;
+                }
+            }
+        }
+
 
         public override string ToString()
         {
