@@ -1,17 +1,20 @@
 using System;
 using NUnit.Framework;
 using System.Collections;
-//using ArrayList.Tests.ArrayListTestsSources;
-//using ArrayList.Tests.ArrayListNegativeTestsSources;
+using Lists.Tests.LinkedListTestsSources;
+//using ist.Tests.ArrayListNegativeTestsSources;
 
 namespace Lists.Tests
 {
     public class LinkedListTests
     {
-        [Test]
-        public void Test1()
+        [TestCaseSource(typeof(AddToEndTestSource))]
+        public void AddToEndTest(int value,LinkedList list, LinkedList expectedList)
         {
-            Assert.Pass();
+            LinkedList actualList = list;
+            actualList.AddToEnd(value);
+
+            Assert.AreEqual(expectedList, actualList);
         }
     }
 }
