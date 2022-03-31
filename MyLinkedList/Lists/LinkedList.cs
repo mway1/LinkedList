@@ -230,8 +230,28 @@ namespace Lists
                 newLastNode.Next = null;
                 _tail = newLastNode;
             }
+        }
 
-
+        public void DeleteFromBeginingElements(int count)
+        {
+            if (Length < 1)
+            {
+                throw new Exception("Nothing to delete");
+            }
+            if (count < 1 || count > Length)
+            {
+                throw new ArgumentException("Incorrect number");
+            }
+            if (Length == count)
+            {
+                _root = null;
+                _tail = null;
+            }
+            else
+            {
+                Node newLastNode = GetNodeByIndex(count);
+                _root = newLastNode;
+            }
         }
 
 

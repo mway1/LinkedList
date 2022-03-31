@@ -70,6 +70,15 @@ namespace Lists.Tests
 
             Assert.AreEqual(expectedList, actualList);
         }
+        
+        [TestCaseSource(typeof(DeleteFromBeginingElementsTestSource))]
+        public void DeleteFromBeginingElementsTest(int count,LinkedList list, LinkedList expectedList)
+        {
+            LinkedList actualList = list;
+            actualList.DeleteFromBeginingElements(count);
+
+            Assert.AreEqual(expectedList, actualList);
+        }
 
 
 
