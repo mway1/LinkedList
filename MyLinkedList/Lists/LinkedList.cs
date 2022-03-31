@@ -174,6 +174,15 @@ namespace Lists
             }
         }
 
+        public void DeleteFirst()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Nothing to delete, add elemenets");
+            }
+            _root = _root.Next;
+        }
+
 
         public override string ToString()
         {

@@ -44,6 +44,15 @@ namespace Lists.Tests
             Assert.AreEqual(expectedList, actualList);
         }
 
+        [TestCaseSource(typeof(DeleteFirstTestSource))]
+        public void DeleteFirstTest(LinkedList list, LinkedList expectedList)
+        {
+            LinkedList actualList = list;
+            actualList.DeleteFirst();
+
+            Assert.AreEqual(expectedList, actualList);
+        }
+
 
     }
 }
