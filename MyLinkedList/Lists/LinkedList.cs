@@ -155,6 +155,25 @@ namespace Lists
             }
         }
 
+        public void DeleteLast()
+        {
+            if (_tail is null)
+            {
+                throw new Exception("Nothing to delete, add elemenets");
+            }
+            if (Length < 2)
+            {
+                _root = null;
+                _tail = null;
+            }
+            else
+            {
+                Node prevLast = GetNodeByIndex(Length - 2);
+                prevLast.Next = null;
+                _tail = prevLast;
+            }
+        }
+
 
         public override string ToString()
         {

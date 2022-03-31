@@ -33,6 +33,15 @@ namespace Lists.Tests
             actualList.AddByIndex(index,value);
 
             Assert.AreEqual(expectedList, actualList);
+        } 
+        
+        [TestCaseSource(typeof(DeleteLastTestSource))]
+        public void DeleteLastTest(LinkedList list, LinkedList expectedList)
+        {
+            LinkedList actualList = list;
+            actualList.DeleteLast();
+
+            Assert.AreEqual(expectedList, actualList);
         }
 
 
