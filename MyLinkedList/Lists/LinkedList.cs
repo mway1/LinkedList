@@ -112,6 +112,21 @@ namespace Lists
             }
         }
 
+        public void AddFirst(int value)
+        {
+            if (_root is null)
+            {
+                _root = new Node(value);
+                _tail = _root;
+            }
+            else
+            {
+                Node crnt = _root;
+                _root = new Node(value);
+                _root.Next = crnt;
+            }
+        }
+
 
         public override string ToString()
         {
