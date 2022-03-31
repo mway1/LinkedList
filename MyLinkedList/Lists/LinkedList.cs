@@ -209,6 +209,31 @@ namespace Lists
             }
         }
 
+        public void DeleteFromEndElements(int count)
+        {
+            if(Length < 1)
+            {
+                throw new Exception("Nothing to delete");
+            }
+            if (count < 1 || count > Length)
+            {
+                throw new ArgumentException("Incorrect number");
+            }
+            if (Length == count)
+            {
+                _root = null;
+                _tail = null;
+            }
+            else
+            {
+                Node newLastNode = GetNodeByIndex(Length - count - 1);
+                newLastNode.Next = null;
+                _tail = newLastNode;
+            }
+
+
+        }
+
 
         public override string ToString()
         {
