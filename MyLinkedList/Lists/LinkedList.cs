@@ -254,6 +254,30 @@ namespace Lists
             }
         }
 
+        public void DeleteElementsByIndex(int count,int index)
+        {
+            if (Length < 1)
+            {
+                throw new Exception("Nothing to delete");
+            }
+            if (index < 0 || index > Length - 1)
+            {
+                throw new ArgumentException("Incorrect number");
+            }
+            Node prevDelete = GetNodeByIndex(index - 1);
+            Node nextDelete = GetNodeByIndex(index+count);
+
+            if (index == 0)
+            {
+                _root = nextDelete;
+            }
+            else
+            {
+                prevDelete.Next = nextDelete;
+            }
+            _tail = GetNodeByIndex(Length - 1);
+        }
+
 
         public override string ToString()
         {
