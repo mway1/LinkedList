@@ -88,6 +88,16 @@ namespace Lists.Tests
 
             Assert.AreEqual(expectedList, actualList);
         }
+        
+        [TestCaseSource(typeof(LengthTestSource))]
+        public void LengthTest(LinkedList list, int expected)
+        {
+
+            int actual = list.Length;
+
+            Assert.AreEqual(expected, actual);
+        }
+
 
 
 
