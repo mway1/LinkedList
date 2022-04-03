@@ -374,6 +374,53 @@ namespace Lists
             }
             return min;
         }
+        public int FindIndexOfMaxElement()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Add elements, nothing to find");
+            }
+            Node crnt = _root;
+            int max = crnt.Value;
+            int index = 0;
+            int indexOfMax = 0;
+
+            while (crnt != null)
+            {
+                if (crnt.Value > max)
+                {
+                    max = crnt.Value;
+                    indexOfMax = index;
+                }
+                index++;
+                crnt = crnt.Next;
+            }
+            return indexOfMax;
+        }
+        
+        public int FindIndexOfMinElement()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Add elements, nothing to find");
+            }
+            Node crnt = _root;
+            int min = crnt.Value;
+            int index = 0;
+            int indexOfMin = 0;
+
+            while (crnt != null)
+            {
+                if (crnt.Value < min)
+                {
+                    min = crnt.Value;
+                    indexOfMin = index;
+                }
+                index++;
+                crnt = crnt.Next;
+            }
+            return indexOfMin;
+        }
 
 
 

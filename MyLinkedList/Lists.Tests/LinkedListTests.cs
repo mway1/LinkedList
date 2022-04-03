@@ -134,6 +134,20 @@ namespace Lists.Tests
             int actual = list.FindMinElement();
             Assert.AreEqual(expected, actual);
         }
+        
+        [TestCaseSource(typeof(FindIndexOfMaxElementTestSource))]
+        public void FindIndexOfMaxElementTest(LinkedList list, int expected)
+        {
+            int actual = list.FindIndexOfMaxElement();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCaseSource(typeof(FindIndexOfMinElementTestSource))]
+        public void FindIndexOfMinElementTest(LinkedList list, int expected)
+        {
+            int actual = list.FindIndexOfMinElement();
+            Assert.AreEqual(expected, actual);
+        }
 
 
 
