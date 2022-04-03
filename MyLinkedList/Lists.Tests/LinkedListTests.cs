@@ -149,6 +149,25 @@ namespace Lists.Tests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestCaseSource(typeof(SortInAscendingTestSource))]
+        public void SortInAscendingTest(LinkedList list, LinkedList expectedList)
+        {
+            LinkedList actualList = list;
+            actualList.SortInAscending();
+
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(SortInDescendingTestSource))]
+        public void SortInDescendingTest(LinkedList list, LinkedList expectedList)
+        {
+            LinkedList actualList = list;
+            actualList.SortInDescending();
+
+            Assert.AreEqual(expectedList, actualList);
+        }
+
+
 
 
 
