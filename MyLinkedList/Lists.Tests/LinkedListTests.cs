@@ -113,6 +113,15 @@ namespace Lists.Tests
 
             Assert.AreEqual(expectedList, actualList);
         }
+        
+        [TestCaseSource(typeof(ReverseTestSource))]
+        public void ReverseTest(LinkedList list, LinkedList expectedList)
+        {
+            LinkedList actualList = list;
+            actualList.Reverse();
+
+            Assert.AreEqual(expectedList, actualList);
+        }
 
 
 

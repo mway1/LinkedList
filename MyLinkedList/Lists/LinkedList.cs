@@ -313,7 +313,26 @@ namespace Lists
 
             Node newvalue = GetNodeByIndex(index);
             newvalue.Value = value;
+        }
 
+        public void Reverse()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Empty, nthng to reverse");
+            }
+
+            Node crnt = _root;
+            Node tmp;
+
+            while (crnt.Next != null)
+            {
+                tmp = crnt.Next;
+                crnt.Next = tmp.Next;
+                tmp.Next = _root;
+                _root = tmp;
+            }
+            _tail = crnt;
         }
 
 
