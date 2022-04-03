@@ -278,6 +278,28 @@ namespace Lists
             _tail = GetNodeByIndex(Length - 1);
         }
 
+        public int FindFirstIndexByValue(int value)
+        {
+            if (Length ==0)
+            {
+                throw new Exception("Nothing to find");
+            }
+
+            int firstIndex = -1;
+            Node crnt = _root;
+
+            for (int i = 0; i < Length; i++)
+            {
+                if (crnt.Value == value)
+                {
+                    firstIndex = i;
+                    break;
+                }
+                crnt = crnt.Next;
+            }
+            return firstIndex;
+        }
+
 
 
 

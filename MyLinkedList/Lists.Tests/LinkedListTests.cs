@@ -92,8 +92,15 @@ namespace Lists.Tests
         [TestCaseSource(typeof(LengthTestSource))]
         public void LengthTest(LinkedList list, int expected)
         {
-
             int actual = list.Length;
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCaseSource(typeof(FindFirstIndexByValueTestSource))]
+        public void FindFirstIndexByValueTest(int value,LinkedList list, int expected)
+        {
+
+            int actual = list.FindFirstIndexByValue(value);
 
             Assert.AreEqual(expected, actual);
         }
