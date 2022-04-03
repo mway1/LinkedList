@@ -300,6 +300,22 @@ namespace Lists
             return firstIndex;
         }
 
+        public void ChangeValueByIndex(int index, int value)
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Nothng to change");
+            }
+            if (index < 0 || index > Length - 1)
+            {
+                throw new IndexOutOfRangeException("Index out of range");
+            }
+
+            Node newvalue = GetNodeByIndex(index);
+            newvalue.Value = value;
+
+        }
+
 
 
 

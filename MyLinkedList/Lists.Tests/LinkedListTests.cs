@@ -105,6 +105,15 @@ namespace Lists.Tests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestCaseSource(typeof(ChangeValueByIndexTestSource))]
+        public void ChangeValueByIndexTest(int index, int value, LinkedList list, LinkedList expectedList)
+        {
+            LinkedList actualList = list;
+            actualList.ChangeValueByIndex(index,value);
+
+            Assert.AreEqual(expectedList, actualList);
+        }
+
 
 
 
