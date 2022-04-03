@@ -99,9 +99,7 @@ namespace Lists.Tests
         [TestCaseSource(typeof(FindFirstIndexByValueTestSource))]
         public void FindFirstIndexByValueTest(int value,LinkedList list, int expected)
         {
-
             int actual = list.FindFirstIndexByValue(value);
-
             Assert.AreEqual(expected, actual);
         }
 
@@ -121,6 +119,20 @@ namespace Lists.Tests
             actualList.Reverse();
 
             Assert.AreEqual(expectedList, actualList);
+        }
+
+        [TestCaseSource(typeof(FindMaxElementTestSource))]
+        public void FindMaxElementTest(LinkedList list, int expected)
+        {
+            int actual = list.FindMaxElement();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCaseSource(typeof(FindMinElementTestSource))]
+        public void FindMinElementTest(LinkedList list, int expected)
+        {
+            int actual = list.FindMinElement();
+            Assert.AreEqual(expected, actual);
         }
 
 

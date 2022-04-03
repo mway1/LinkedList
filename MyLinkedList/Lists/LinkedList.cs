@@ -319,7 +319,7 @@ namespace Lists
         {
             if (Length == 0)
             {
-                throw new Exception("Empty, nthng to reverse");
+                throw new Exception("Nothng to reverse");
             }
 
             Node crnt = _root;
@@ -333,6 +333,46 @@ namespace Lists
                 _root = tmp;
             }
             _tail = crnt;
+        }
+
+        public int FindMaxElement()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Add elements, nothing to find");
+            }
+            Node crnt = _root;
+            int max = crnt.Value;
+
+            while (crnt != null)
+            {
+                if (crnt.Value > max)
+                {
+                    max = crnt.Value;
+                }
+                crnt = crnt.Next;
+            }
+            return max;
+        }
+        
+        public int FindMinElement()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Add elements, nothing to find");
+            }
+            Node crnt = _root;
+            int min = crnt.Value;
+
+            while (crnt != null)
+            {
+                if (crnt.Value < min)
+                {
+                    min = crnt.Value;
+                }
+                crnt = crnt.Next;
+            }
+            return min;
         }
 
 
