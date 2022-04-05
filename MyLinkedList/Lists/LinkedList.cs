@@ -571,6 +571,33 @@ namespace Lists
             list._tail.Next = tmp;
             _root = list._root;
         }
+        
+        public void AddListByIndex(int index, LinkedList list)
+        {
+
+            if (_root == null || list._root == null)
+            {
+                throw new NullReferenceException();
+            }
+            if (index > Length || index < 0)
+            {
+                throw new ArgumentException("index is wrong");
+            }
+            else if (index == 0)
+            {
+                AddListToBegining(list);
+            }
+            else
+            {
+                Node prevNode = GetNodeByIndex(index - 1);
+                Node nextNode = GetNodeByIndex(index);
+                prevNode.Next = list._root;
+                list._tail = GetNodeByIndex(Length - 1);
+                list._tail.Next = nextNode;
+            }
+        }
+
+
 
 
         public override string ToString()
