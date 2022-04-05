@@ -522,6 +522,33 @@ namespace Lists
             _tail = GetNodeByIndex(Length - 1);
             return -1;
         }
+        
+        public int DeleteAllByValue(int value)
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Add elements, nothing to delete");
+            }
+
+            Node crnt = _root;
+            int count = 0;
+            int index = 0;
+
+            while (crnt != null)
+            {
+                index = FindFirstIndexByValue(value);
+
+                if (index != -1)
+                {
+                    DeleteByIndex(index);
+                    count++;
+                }
+
+                crnt = crnt.Next;
+            }
+            _tail = GetNodeByIndex(Length - 1);
+            return count;
+        }
 
 
         public override string ToString()
