@@ -166,6 +166,16 @@ namespace Lists.Tests
 
             Assert.AreEqual(expectedList, actualList);
         }
+        
+        [TestCaseSource(typeof(DeleteFirstByValueTestSource))]
+        public void DeleteFirstByValueTest(int value,LinkedList list, LinkedList expectedList,int expected)
+        {
+            int actual = list.DeleteFirstByValue(value);
+            LinkedList actualList = list;
+
+            Assert.AreEqual(expectedList, actualList);
+            Assert.AreEqual(expected, actual);
+        }
 
 
 

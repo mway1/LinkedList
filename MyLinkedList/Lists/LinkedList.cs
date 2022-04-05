@@ -500,7 +500,28 @@ namespace Lists
             _tail = GetNodeByIndex(l - 1);
         }
 
+        public int DeleteFirstByValue(int value)
+        {
+            if (Length == 0)
+            {
+                throw new Exception("Add elements, nothing to delete");
+            }
 
+            Node crnt = _root;
+
+            for(int i = 0; i < Length; i++)
+            {
+                int index = i;
+                if (crnt.Value == value)
+                {
+                    DeleteByIndex(index);
+                    return index;
+                }
+                crnt = crnt.Next;
+            }
+            _tail = GetNodeByIndex(Length - 1);
+            return -1;
+        }
 
 
         public override string ToString()
