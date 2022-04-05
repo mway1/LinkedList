@@ -187,6 +187,15 @@ namespace Lists.Tests
             Assert.AreEqual(expected, actual);
         }
 
+        [TestCaseSource(typeof(AddListToEndTestSource))]
+        public void AddListToEndTest(LinkedList list, LinkedList listAdd, LinkedList expectedList)
+        {
+            LinkedList actualList = list;
+            actualList.AddListToEnd(listAdd);
+
+            Assert.AreEqual(expectedList, actualList);
+        }
+
 
 
 
