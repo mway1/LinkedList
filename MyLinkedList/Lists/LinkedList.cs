@@ -559,6 +559,17 @@ namespace Lists
             _tail = GetNodeByIndex(Length - 1);
             _tail.Next = list._root;
             _tail = list._tail;
+        } 
+        
+        public void AddListToBegining(LinkedList list)
+        {
+            if (_root == null || list._root == null)
+            {
+                throw new NullReferenceException();
+            }
+            Node tmp = _root;
+            list._tail.Next = tmp;
+            _root = list._root;
         }
 
 
